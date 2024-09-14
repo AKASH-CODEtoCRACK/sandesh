@@ -79,7 +79,9 @@ export const getUsers = query({
 		}
 
 		const users = await ctx.db.query("users").collect();
+		//to remove yourself form user list for chat
 		return users.filter((user) => user.tokenIdentifier !== identity.tokenIdentifier);
+		// return users;
 	},
 });
 
